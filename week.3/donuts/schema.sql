@@ -30,12 +30,14 @@ CREATE TABLE "customers" (
 CREATE TABLE "orders" (
     "id" INTEGER,
     "customer_id" INTEGER,
+    PRIMARY KEY ("id"),
     FOREIGN KEY ("customer_id") REFERENCES "customers"("id")
 );
 
-CREATE TABLE "order_contains" (
+CREATE TABLE "order_details" (
     "order_id" INTEGER,
     "donut_id" INTEGER,
+    "number" INTEGER NOT NULL DEFAULT 1,
     FOREIGN KEY ("order_id") REFERENCES "orders"("id"),
     FOREIGN KEY ("donut_id") REFERENCES "donuts"("id")
 )
